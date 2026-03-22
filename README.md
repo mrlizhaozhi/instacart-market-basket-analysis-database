@@ -8,11 +8,11 @@ This dataset is good for practising SQL and Python for CRM/marketing analytics.
 
 Step 1: Download the dataset from Kaggle.
 
-Step 2: Fire up pgAdmin and create a new database. Note that IF NOT EXISTS does not work in older PostgreSQL. Do this manually and remove the code in the script if necessary.
+Step 2: Fire up pgAdmin and create a new database. Note that IF NOT EXISTS does not work in older PostgreSQL. Do this manually and comment out the database creation code in the SQL script if necessary.
 
-Step 3: Run the SQL script in pgAdmin. Note that you will need to update the filepaths before running this script to import the downloaded datasets from your local machine to the database.
+Step 3: Navigate to Step 3 in the SQL script and update the paths to the downloaded data files then run the script to create the database structure and import data.
 
-Step 4: Test the database setup.
+Step 4: Test the database setup by running sanity checks.
 
 ## Database schema
 
