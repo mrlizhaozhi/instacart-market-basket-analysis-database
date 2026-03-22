@@ -116,20 +116,20 @@ BEGIN
         FOREIGN KEY (department_id) REFERENCES departments(department_id);
     END IF;
 
-    -- order_products_prior → orders
+    -- order_products → orders
     IF NOT EXISTS (
         SELECT 1 FROM pg_constraint WHERE conname = 'fk_prior_orders'
     ) THEN
-        ALTER TABLE order_products_prior
+        ALTER TABLE order_products
         ADD CONSTRAINT fk_prior_orders
         FOREIGN KEY (order_id) REFERENCES orders(order_id);
     END IF;
 
-    -- order_products_prior → products
+    -- order_products → products
     IF NOT EXISTS (
         SELECT 1 FROM pg_constraint WHERE conname = 'fk_prior_products'
     ) THEN
-        ALTER TABLE order_products_prior
+        ALTER TABLE order_products
         ADD CONSTRAINT fk_prior_products
         FOREIGN KEY (product_id) REFERENCES products(product_id);
     END IF;
@@ -145,21 +145,6 @@ SELECT * FROM order_products_prior
 UNION ALL
 SELECT * FROM order_products_train;
 
--- =========================================
--- 6. Create Entity Relationships
--- =========================================
-
-ALTER TABLE products
-ADD FOREIGN KEY (aisle_id) REFERENCES aisles(aisle_id);
-
-ALTER TABLE products
-ADD FOREIGN KEY (department_id) REFERENCES departments(department_id);
-
-ALTER TABLE order_products
-ADD FOREIGN KEY (order_id) REFERENCES orders(order_id);
-
-ALTER TABLE order_products
-ADD FOREIGN KEY (product_id) REFERENCES products(product_id);
 -- =========================================
 -- DONE
 -- =========================================
