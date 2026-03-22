@@ -62,32 +62,32 @@ CREATE TABLE IF NOT EXISTS order_products_train (
 -- IMPORTANT: Replace '/path/...' with your actual file paths
 
 COPY orders
-FROM '/path/orders.csv'
+FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\orders.csv"
 DELIMITER ','
 CSV HEADER;
 
 COPY products
-FROM '/path/products.csv'
+FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\products.csv"
 DELIMITER ','
 CSV HEADER;
 
 COPY aisles
-FROM '/path/aisles.csv'
+FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\aisles.csv"
 DELIMITER ','
 CSV HEADER;
 
 COPY departments
-FROM '/path/departments.csv'
+FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\departments.csv"
 DELIMITER ','
 CSV HEADER;
 
 COPY order_products_prior
-FROM '/path/order_products__prior.csv'
+FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\order_products_prior.csv"
 DELIMITER ','
 CSV HEADER;
 
 COPY order_products_train
-FROM '/path/order_products__train.csv'
+FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\order_products_train.csv"
 DELIMITER ','
 CSV HEADER;
 
@@ -145,7 +145,19 @@ SELECT * FROM order_products_prior
 UNION ALL
 SELECT * FROM order_products_train;
 
+-- =========================================
+-- 6. Create Entity Relationships
+-- =========================================
 
+ALTER TABLE products
+ADD FOREIGN KEY (aisle_id) REFERENCES aisles(aisle_id);
+
+ALTER TABLE products
+ADD FOREIGN KEY (department_id) REFERENCES departments(department_id);
+
+ALTER TABLE order_products
+ADD FOREIGN KEY (order_id) REFERENCES orders(order_id);
+ADD FOREIGN KEY (product_id) REFERENCES products(product_id);
 -- =========================================
 -- DONE
 -- =========================================
