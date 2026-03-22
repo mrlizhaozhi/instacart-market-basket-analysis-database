@@ -10,4 +10,4 @@ Step 3: Run the SQL script in pgAdmin. Note that you will need to update the fil
 
 Step 4: Test the database setup.
 
-!(instacart database schema image)[https://github.com/mrlizhaozhi/instacart-market-basket-analysis-database/blob/main/instacart_database_schema.png]
+![instacart database schema image](https://github.com/mrlizhaozhi/instacart-market-basket-analysis-database/blob/main/instacart_database_schema.png)
