@@ -1,7 +1,7 @@
 -- =========================================
 -- 1. Create Database
 -- =========================================
-CREATE DATABASE instacart;
+CREATE DATABASE IF NOT EXISTS instacart;
 -- NOTE: You cannot use IF NOT EXISTS with CREATE DATABASE in older PostgreSQL versions.
 -- Run this manually if needed, then connect:
 
