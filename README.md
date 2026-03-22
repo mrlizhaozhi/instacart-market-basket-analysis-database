@@ -8,7 +8,7 @@ This dataset is good for practising SQL and Python for CRM/marketing analytics.
 
 Step 1: Download the dataset from Kaggle.
 
-Step 2: Fire up pgAdmin and create a new database.
+Step 2: Fire up pgAdmin and create a new database. Note that IF NOT EXISTS does not work in older PostgreSQL. Do this manually and remove the code in the script if necessary.
 
 Step 3: Run the SQL script in pgAdmin. Note that you will need to update the filepaths before running this script to import the downloaded datasets from your local machine to the database.
 
@@ -17,3 +17,5 @@ Step 4: Test the database setup.
 ## Database schema
 
 ![instacart database schema image](https://github.com/mrlizhaozhi/instacart-market-basket-analysis-database/blob/main/instacart_database_schema.png)
+
+The SQL script combines `order_product__prior` and `order_product__train` into a single `order_product` table.
