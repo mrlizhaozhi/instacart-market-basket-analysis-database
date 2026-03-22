@@ -62,32 +62,32 @@ CREATE TABLE IF NOT EXISTS order_products_train (
 -- IMPORTANT: Replace '/path/...' with your actual file paths
 
 COPY orders
-FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\orders.csv"
+FROM 'D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\orders.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY products
-FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\products.csv"
+FROM 'D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\products.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY aisles
-FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\aisles.csv"
+FROM 'D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\aisles.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY departments
-FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\departments.csv"
+FROM 'D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\departments.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY order_products_prior
-FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\order_products_prior.csv"
+FROM 'D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\order_products__prior.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY order_products_train
-FROM "D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\order_products_train.csv"
+FROM 'D:\LZMyDocs\Financial Crime Risk Analytics\Portfolio Projects\InstaCart Online Grocery Basket Analysis\order_products__train.csv'
 DELIMITER ','
 CSV HEADER;
 
@@ -157,6 +157,8 @@ ADD FOREIGN KEY (department_id) REFERENCES departments(department_id);
 
 ALTER TABLE order_products
 ADD FOREIGN KEY (order_id) REFERENCES orders(order_id);
+
+ALTER TABLE order_products
 ADD FOREIGN KEY (product_id) REFERENCES products(product_id);
 -- =========================================
 -- DONE
